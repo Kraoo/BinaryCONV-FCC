@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --light-grey: #cccccc;
+  --dark-blue: #121212;
+  --orange: #ffa500;
+}
+
+body {
+  background-color: var(--dark-blue);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: var(--light-grey);
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: var(--orange);
+}
+
+.input-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.convert-btn {
+  background-color: var(--orange);
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.number-input {
+  height: 35px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 2px solid var(--orange);
+}
+
+#result {
+  margin: 20px 0;
+  min-width: 250px;
+  width: fit-content;
+  min-height: 100px;
+  word-break: break-word;
+  padding: 20px;
+  border: 5px solid var(--orange);
+  font-size: 2rem;
+  text-align: center;
+}
+
+#animation-container {
+  margin: auto;
+  max-width: 350px;
+}
+
+.animation-frame {
+  margin: 150px auto 0;
+  padding: 20px 15px;
+  border: 5px solid var(--orange);
+  font-size: 1.4rem;
+  text-align: center;
+}
