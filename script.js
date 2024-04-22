@@ -2,6 +2,7 @@ const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 const animationContainer = document.getElementById("animation-container");
+
 const animationData = [
   {
     inputVal: 5,
@@ -37,28 +38,38 @@ const decimalToBinary = (input) => {
   }
 };
 
+const addAnimationFrame = (obj) => {
+  setTimeout(() => {
+    animationContainer.innerHTML += `
+      <p id="${obj.inputVal}" style="margin-top: ${obj.marginTop}px;" class="animation-frame">
+        decimalToBinary(${obj.inputVal})
+      </p>
+    `;
+  }, obj.addElDelay);
+};
+
+const showMessage = (obj) => {
+  setTimeout(() => {
+    document.getElementById(obj.inputVal).textContent = obj.msg;
+  }, obj.showMsgDelay);
+};
+
+const removeAnimationFrame = (obj) => {
+  setTimeout(() => {
+    document.getElementById(obj.inputVal).remove();
+  }, obj.removeElDelay);
+};
+
 const showAnimation = () => {
   result.innerText = "Call Stack Animation";
 
   animationData.forEach((obj) => {
-    setTimeout(() => {
-      animationContainer.innerHTML += `
-        <p id="${obj.inputVal}" style="margin-top: ${obj.marginTop}px;" class="animation-frame">
-          decimalToBinary(${obj.inputVal})
-        </p>
-      `;
-    }, obj.addElDelay);
-
-    setTimeout(() => {
-      document.getElementById(obj.inputVal).textContent = obj.msg;
-    }, obj.showMsgDelay);
-
-    setTimeout(() => {
-      document.getElementById(obj.inputVal).remove();
-    }, obj.removeElDelay);
+    addAnimationFrame(obj);
+    showMessage(obj);
+    removeAnimationFrame(obj);
   });
 
-    setTimeout(() => {
+  setTimeout(() => {
     result.textContent = decimalToBinary(5);
   }, 20000);
 };
